@@ -1,0 +1,57 @@
+{
+  "dataset": "CLC FCE Dataset v1.1",
+  "task": "Grammatical Error Correction",
+  "split_policy": "Official train/dev/test partitions retained",
+  "cleaning": [
+    "Unicode NFC normalization",
+    "Whitespace normalization",
+    "Mechanical spaces before punctuation removed",
+    "Mechanical spaces inside brackets/curly quotes removed",
+    "Case and punctuation otherwise preserved"
+  ],
+  "qc_policy": "Suspicious pairs are flagged for review but retained",
+  "splits": {
+    "train": {
+      "input_file": "train(oeistein.andersen@cambridge.org)[1].json",
+      "answer_records": 2118,
+      "sentence_pairs": 25282,
+      "changed_pairs": 17421,
+      "unchanged_pairs": 7861,
+      "duplicates_removed": 1320,
+      "cross_boundary_sentences_skipped": 410,
+      "null_corrections_skipped": 1546,
+      "malformed_records": 0,
+      "qc_flagged_pairs": 109,
+      "output_sha256": "7044a7025e7d3fb4d95f48eaee2f6d50d85799bf87af79c16dc42d4cf3972b78",
+      "qc_output_sha256": "88abe21df83a8e3b5197c10c4ab2afa284e3fefcc12d8bb53827b8078fe056ca"
+    },
+    "validation": {
+      "input_file": "dev(oeistein.andersen@cambridge.org)[1](1).json",
+      "answer_records": 159,
+      "sentence_pairs": 1924,
+      "changed_pairs": 1353,
+      "unchanged_pairs": 571,
+      "duplicates_removed": 127,
+      "cross_boundary_sentences_skipped": 36,
+      "null_corrections_skipped": 126,
+      "malformed_records": 0,
+      "qc_flagged_pairs": 8,
+      "output_sha256": "3305f7716858aea4866bd5f5569d781e71e5a3d2a3e2f5b0fc9ddee075c9ed03",
+      "qc_output_sha256": "02a4f2a88e02d657ff18d9f2ff1ee290f0a6d5dcf243643b9bc7e01e3afb035f"
+    },
+    "test": {
+      "input_file": "test(oeistein.andersen@cambridge.org)[1].json",
+      "answer_records": 194,
+      "sentence_pairs": 2382,
+      "changed_pairs": 1766,
+      "unchanged_pairs": 616,
+      "duplicates_removed": 140,
+      "cross_boundary_sentences_skipped": 42,
+      "null_corrections_skipped": 253,
+      "malformed_records": 0,
+      "qc_flagged_pairs": 16,
+      "output_sha256": "81d1341859562a2c4a0b4462126899c14d64c0f562d8a19dca2eb52249c0abf9",
+      "qc_output_sha256": "255e2c2be774df4af92f364eaadb83eceb9bd95d5e7e026baf10b93795c72d50"
+    }
+  }
+}
