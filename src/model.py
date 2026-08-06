@@ -129,3 +129,24 @@ class Seq2Seq(nn.Module):
 
     def count_parameters(self):
         return sum(p.numel() for p in self.parameters() if p.requires_grad)
+
+    def generate(self, src, vocab, max_len=50, device='cpu'):
+        self.eval()
+        with torch.no_grad():
+            encoder_outputs, (hidden, cell) = self.encoder(src)
+            mask = (src != self.pad_idx)
+
+            inputs = torch.tensor([vocab.sos_idx], device=device).unsqueeze(0)
+            trg_indexes = [vocab.sos_idx]
+            
+            for _ in range(max_len):
+                output, hidden, cell, _ = self.decoder.forward_step(
+                    inputs, hidden, cell, encoder_outputs, mask
+                )
+                pred_token = output.argmax(1).item()
+                if pred_token == vocab.eos_idx:
+                    break
+                trg_indexes.append(pred_token)
+                inputs = torch.tensor([pred_token], device=device).unsqueeze(0)
+                
+        return [vocab.get_token(i) for i in trg_indexes[1:]]
