@@ -1,0 +1,30 @@
+[
+  {
+    "condition": "v1_zeroshot",
+    "num_examples": 100,
+    "total_input_tokens": 4281,
+    "total_output_tokens": 1966,
+    "estimated_cost_usd": 0.0062
+  },
+  {
+    "condition": "v2_zeroshot",
+    "num_examples": 100,
+    "total_input_tokens": 10681,
+    "total_output_tokens": 1997,
+    "estimated_cost_usd": 0.0082
+  },
+  {
+    "condition": "v1_fewshot",
+    "num_examples": 100,
+    "total_input_tokens": 20881,
+    "total_output_tokens": 1998,
+    "estimated_cost_usd": 0.0113
+  },
+  {
+    "condition": "v2_fewshot",
+    "num_examples": 100,
+    "total_input_tokens": 27281,
+    "total_output_tokens": 2001,
+    "estimated_cost_usd": 0.0132
+  }
+]
