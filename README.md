@@ -196,6 +196,14 @@ To run the baseline on the complete configured test set, use:
 python llm_baseline/run_baseline.py
 ```
 
+To reproduce our reported results specifically, use:
+
+```bash
+python llm_baseline/run_baseline.py --limit 100
+```
+
+This runs our fixed 100-example subset (seed=42), matching the outputs saved in llm_baseline/outputs/. Due to free-tier API rate limits, this subset was used for all reported results rather than the complete 2,382-example test set.
+
 The outputs are stored in:
 
 ```text
