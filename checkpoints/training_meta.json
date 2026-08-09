@@ -1,0 +1,6 @@
+{
+  "parameters": 42188692,
+  "training_time_seconds": 91.44921016693115,
+  "device": "CPU",
+  "best_val_loss": 6.87326709685787
+}

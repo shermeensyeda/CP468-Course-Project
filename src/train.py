@@ -4,10 +4,11 @@ import os
 import time
 import json
 import random
+import argparse
 import numpy as np
 import torch
 import torch.nn as nn
-from torch.utils.data import DataLoader
+from torch.utils.data import DataLoader, Subset
 
 from src.vocabulary import Vocabulary
 from src.dataset import GECDataset, make_collate_fn  # Adjust import based on dataset.py class name
@@ -62,71 +63,74 @@ def evaluate(model, dataloader, criterion, device):
     return epoch_loss / len(dataloader)
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--epochs', type=int, default=10)
+    parser.add_argument('--batch-size', type=int, default=32)
+    parser.add_argument('--limit', type=int, default=None, help='limit training set size for quick runs')
+    args = parser.parse_args()
+
     SET_SEED = 42
     set_seed(SET_SEED)
-    
+
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     print(f"Using device: {device}")
-    
+
     # Load Vocabulary
-    vocab = Vocabulary.load("data/processed/vocab.json") # Adjust loading function if needed
-    
-      # Initialize Datasets & DataLoaders
+    vocab = Vocabulary.load("data/processed/vocab.json")
+
+    # Initialize Datasets & DataLoaders
     train_dataset = GECDataset("data/processed/train.jsonl", vocab)
     val_dataset = GECDataset("data/processed/validation.jsonl", vocab)
 
-    train_loader = DataLoader(
-        train_dataset,
-        batch_size=32,
-        shuffle=True,
-        collate_fn=make_collate_fn(vocab.pad_idx)
-    )
+    if args.limit:
+        train_dataset = Subset(train_dataset, list(range(min(args.limit, len(train_dataset)))))
 
-    val_loader = DataLoader(
-        val_dataset,
-        batch_size=32,
-        shuffle=False,
-        collate_fn=make_collate_fn(vocab.pad_idx)
-    )
+    PAD_IDX = vocab.pad_idx
+    collate = make_collate_fn(PAD_IDX)
+
+    train_loader = DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True, collate_fn=collate)
+    val_loader = DataLoader(val_dataset, batch_size=args.batch_size, shuffle=False, collate_fn=collate)
 
     # Model Hyperparameters
     EMBED_SIZE = 256
     HIDDEN_SIZE = 512
     NUM_LAYERS = 2
     DROPOUT = 0.3
-    PAD_IDX = vocab.pad_idx
-    
+
     enc = Encoder(len(vocab.itos), EMBED_SIZE, HIDDEN_SIZE, NUM_LAYERS, DROPOUT, PAD_IDX)
     dec = Decoder(len(vocab.itos), EMBED_SIZE, HIDDEN_SIZE, NUM_LAYERS, DROPOUT, PAD_IDX)
     model = Seq2Seq(enc, dec, PAD_IDX).to(device)
-    
+
     print(f"Total Trainable Parameters: {model.count_parameters():,}")
-    
+
     optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
     criterion = nn.CrossEntropyLoss(ignore_index=PAD_IDX)
-    
+
     os.makedirs("checkpoints", exist_ok=True)
-    
-    N_EPOCHS = 10
+
+    N_EPOCHS = args.epochs
     CLIP = 1.0
     best_val_loss = float('inf')
-    
+
     start_time = time.time()
     for epoch in range(N_EPOCHS):
         e_start = time.time()
         train_loss = train_epoch(model, train_loader, optimizer, criterion, CLIP, device)
         val_loss = evaluate(model, val_loader, criterion, device)
         e_end = time.time()
-        
+
         if val_loss < best_val_loss:
             best_val_loss = val_loss
             torch.save(model.state_dict(), "checkpoints/best_lstm.pt")
-            
+
+        # also save last checkpoint
+        torch.save(model.state_dict(), "checkpoints/last_lstm.pt")
+
         print(f"Epoch {epoch+1:02} | Time: {e_end - e_start:.2f}s | Train Loss: {train_loss:.4f} | Val Loss: {val_loss:.4f}")
-        
+
     total_time = time.time() - start_time
     print(f"\nTraining completed in: {total_time / 60:.2f} minutes")
-    
+
     # Save metadata for report writing
     meta = {
         "parameters": model.count_parameters(),
@@ -136,6 +140,7 @@ def main():
     }
     with open("checkpoints/training_meta.json", "w") as f:
         json.dump(meta, f, indent=2)
+
 
 if __name__ == "__main__":
     main()

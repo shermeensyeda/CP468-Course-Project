@@ -136,7 +136,8 @@ class Seq2Seq(nn.Module):
             encoder_outputs, (hidden, cell) = self.encoder(src)
             mask = (src != self.pad_idx)
 
-            inputs = torch.tensor([vocab.sos_idx], device=device).unsqueeze(0)
+            # inputs should be a 1D tensor of token ids (batch vector)
+            inputs = torch.tensor([vocab.sos_idx], device=device)
             trg_indexes = [vocab.sos_idx]
             
             for _ in range(max_len):
@@ -147,6 +148,8 @@ class Seq2Seq(nn.Module):
                 if pred_token == vocab.eos_idx:
                     break
                 trg_indexes.append(pred_token)
-                inputs = torch.tensor([pred_token], device=device).unsqueeze(0)
+                # keep inputs as 1D batch vector for the next step
+                inputs = torch.tensor([pred_token], device=device)
                 
-        return [vocab.get_token(i) for i in trg_indexes[1:]]
+        # convert ids to tokens using Vocabulary.decode
+        return vocab.decode(trg_indexes[1:], skip_special=True)

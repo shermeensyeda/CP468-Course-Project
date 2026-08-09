@@ -1,0 +1,808 @@
+{
+  "per_example": [
+    {
+      "source": "In addition, this is the 60th floor, I went there first time I couldn't believed it.",
+      "reference": "In addition, there is the 60th floor. When I went there the first time I couldn't believe it.",
+      "hypothesis": "In addition, this is the 60th floor, I went there first time I couldn't believed it.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "Your hotel is called Palace Hotel and it is placed in the city centre.",
+      "reference": "Your hotel is called Palace Hotel and it is located in the city centre.",
+      "hypothesis": "Your hotel is called Palace Hotel and it is placed in the city centre.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "This is the biggest and oldest in Pusan.",
+      "reference": "This is the biggest and oldest in Pusan.",
+      "hypothesis": "This is the biggest and oldest in Pusan.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "Dear Mrs Smith, Thank you for your letter.",
+      "reference": "Dear Mrs Smith, Thank you for your letter.",
+      "hypothesis": "Dear Mrs Smith, Thank you for your letter.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "Obviously, using a taxi is the best but unfortunately it is quite expensive for student.",
+      "reference": "Obviously, using a taxi is the best but unfortunately it is quite expensive for a student.",
+      "hypothesis": "Obviously, using a taxi is the best but unfortunately it is quite expensive for student.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "Dear Mrs Smith With reference to the information that you had requested, the hotel that had been booked is the Holiday Inn, in New Port and to get to the University of Wales wich is not far from the hotel, you only need to take a divertion where clearly indicate Carleon and once that you are on the main road all you need to do is to follow the country road which take you direct to the place.",
+      "reference": "Dear Mrs Smith With reference to the information that you have requested, the hotel that has been booked is the Holiday Inn, in New Port and to get to the University of Wales, which is not far from the hotel, you only need to take a diversion where clearly indicate Carleon and once you are on the main road, all you need to do is to follow the country road which takes you directly to the place.",
+      "hypothesis": "Dear Mrs Smith With reference to the information that you had requested, the hotel that had been booked is the Holiday Inn, in New Port and to get to the University of Wales wich is not far from the hotel, you only need to take a divertion where clearly indicate Carleon and once that you are on the main road all you need to do is to follow the country road which take you direct to the place.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "This place is very important because it is there that an Emperor had growing up.",
+      "reference": "This place is very important because it is there that an emperor grew up.",
+      "hypothesis": "This place is very important because it is there that an Emperor had growing up.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "Dear Mrs Maria Smith Thank you for your letter which arrived me this morning.",
+      "reference": "Dear Mrs Smith Thank you for your letter which arrived this morning.",
+      "hypothesis": "Dear Mrs Maria Smith Thank you for your letter which arrived me this morning.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "By bus: most of the buses in York City Centre pass the station, or you can take a taxi.",
+      "reference": "By bus: most of the buses in York City Centre pass the station, or you can take a taxi.",
+      "hypothesis": "By bus: most of the buses in York City Centre pass the station, or you can take a taxi.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "The end-of-conference party is designed to give rough ideas about many different cultures.",
+      "reference": "The end-of-conference party is designed to give a taste of many different cultures.",
+      "hypothesis": "The end-of-conference party is designed to give rough ideas about many different cultures.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "Another aspect is that people have more time if they have a telephone.",
+      "reference": "Another aspect is that people have more time if they have a telephone.",
+      "hypothesis": "Another aspect is that people have more time if they have a telephone.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "People use the telephone every day and it is one of the most important things in daily life.",
+      "reference": "People use the telephone every day and it is one of the most important things in daily life.",
+      "hypothesis": "People use the telephone every day and it is one of the most important things in daily life.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "Dear Mrs Smith It was such a pleasure to receive your letter, and we will be extremely glad to see you at the conference, we have been organising.",
+      "reference": "Dear Mrs Smith It was such a pleasure to receive your letter, and we will be extremely glad to see you at the conference we have been organising.",
+      "hypothesis": "Dear Mrs Smith It was such a pleasure to receive your letter, and we will be extremely glad to see you at the conference, we have been organising.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "There is a lot of places you can visit in Peterborough.",
+      "reference": "There are a lot of places you can visit in Peterborough.",
+      "hypothesis": "There is a lot of places you can visit in Peterborough.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "It will take you about 15 minutes to arrive at the college.",
+      "reference": "It will take you about 15 minutes to arrive at the college.",
+      "hypothesis": "It will take you about 15 minutes to arrive at the college.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "and many other sports event in our school, if they want to.",
+      "reference": "and many other sports activities in our school, if they want to.",
+      "hypothesis": "and many other sports event in our school, if they want to.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "When you come out of the subway you see our college.",
+      "reference": "When you come out of the subway you see our college.",
+      "hypothesis": "When you come out of the subway you see our college.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "Secondly the best way to go from the hotel to the conference center is to use one of the shutel buses we provide at this efect.",
+      "reference": "Secondly the best way to go from the hotel to the conference centre is to use one of the shuttle buses we provide at this event.",
+      "hypothesis": "Secondly the best way to go from the hotel to the conference center is to use one of the shutel buses we provide at this efect.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "Firstly, the hotel in which the group is going to stay is 'Palace Hotel'.",
+      "reference": "Firstly, the hotel in which the group is going to stay is the 'Palace Hotel'.",
+      "hypothesis": "Firstly, the hotel in which the group is going to stay is 'Palace Hotel'.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "So that you can spend your time in one go.",
+      "reference": "So you can spend your time in one go.",
+      "hypothesis": "So that you can spend your time in one go.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "And around me nature that I can watch and enjoy while we shop fore camp.",
+      "reference": "And around me is the countryside, which I can watch and enjoy while we look for a camp.",
+      "hypothesis": "And around me nature that I can watch and enjoy while we shop fore camp.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "She had never passed an maths exam and she was really nervous.",
+      "reference": "She had never passed a maths exam and she was really nervous.",
+      "hypothesis": "She had never passed an maths exam and she was really nervous.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "I cannot always walk to the person and say \"Sorry, I must cancel our meeting\", because then it's too late anyway, isn't it?",
+      "reference": "I cannot always walk to the person and say \"Sorry, I must cancel our meeting\", because then it's too late anyway, isn't it?",
+      "hypothesis": "I cannot always walk to the person and say \"Sorry, I must cancel our meeting\", because then it's too late anyway, isn't it?",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "fortunately If somebody visit castle over ten people, they give them discount.",
+      "reference": "Fortunately if over ten people visit the castle, they give them a discount.",
+      "hypothesis": "fortunately If somebody visit castle over ten people, they give them discount.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "Dear Mrs Smith I am writing to reply your letter you wrote me on 10 June.",
+      "reference": "Dear Mrs Smith I am writing to reply to the letter you wrote to me on 10 June.",
+      "hypothesis": "Dear Mrs Smith I am writing to reply your letter you wrote me on 10 June.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "But computers don't have affected only in a good way because thank you to computers the number the places of work for the persons is minor.",
+      "reference": "But computers haven't only affected us in a good way because thanks to computers the number the jobs available for people is smaller.",
+      "hypothesis": "But computers don't have affected only in a good way because thank you to computers the number the places of work for the persons is minor.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "Other members of groups can wear a normal pretty formal dress.",
+      "reference": "Other members of the groups can wear normal, attractive formal dress.",
+      "hypothesis": "Other members of groups can wear a normal pretty formal dress.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "There was no any light outside our house, no light on the road or field either.",
+      "reference": "There was not any light outside our house, and no light on the road or field either.",
+      "hypothesis": "There was no any light outside our house, no light on the road or field either.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "It cost ten pounds.",
+      "reference": "It costs ten pounds.",
+      "hypothesis": "It cost ten pounds.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "Dear Mrs Smith, I am writting to answer your letter where you asked for information about the conferents and other points in relation with.",
+      "reference": "Dear Mrs Smith, I am writing to answer your letter where you asked for information about the conference and other points in relation to it.",
+      "hypothesis": "Dear Mrs Smith, I am writting to answer your letter where you asked for information about the conferents and other points in relation with.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "The next city is 15 km away and there is no acceptable bus - or rail connection to go there.",
+      "reference": "The next city is 15 km away and there is no acceptable bus or rail connection to go there.",
+      "hypothesis": "The next city is 15 km away and there is no acceptable bus - or rail connection to go there.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "on our most idyllic play field which is over looking the endless Countryside and farms.",
+      "reference": "on our most idyllic playing field, which overlooks the endless Countryside and farms.",
+      "hypothesis": "on our most idyllic play field which is over looking the endless Countryside and farms.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "Location: Courtelary is situated in Switzerland and the school is on the top of the town's hill.",
+      "reference": "Location: Courtelary is situated in Switzerland and the school is on the top of the town's hill.",
+      "hypothesis": "Location: Courtelary is situated in Switzerland and the school is on the top of the town's hill.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "In conclusion, I think car is very important to me and it has affected my own life.",
+      "reference": "In conclusion, I think a car is very important to me and it has affected my own life.",
+      "hypothesis": "In conclusion, I think car is very important to me and it has affected my own life.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "And we have two choices to get to the conference, a bus or a train.",
+      "reference": "And we have two ways to get to the conference, a bus or a train.",
+      "hypothesis": "And we have two choices to get to the conference, a bus or a train.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "Without any doubt, a hystorical place which provides it's visitors with the opportunity to discover different aspects of the greek history during the passing of centuries.",
+      "reference": "Without any doubt, it is a historical place which provides its visitors with the opportunity to discover different aspects of Greek history during the passing of the centuries.",
+      "hypothesis": "Without any doubt, a hystorical place which provides it's visitors with the opportunity to discover different aspects of the greek history during the passing of centuries.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "History.",
+      "reference": "History.",
+      "hypothesis": "History.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "The Conference will start at 9 am of 25 June and will finish about 6 pm in the same day.",
+      "reference": "The Conference will start at 9 am on 25 June and will finish about 6 pm on the same day.",
+      "hypothesis": "The Conference will start at 9 am of 25 June and will finish about 6 pm in the same day.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "In addition this, today companies can do nothing without a computer.",
+      "reference": "In addition to this, today companies can do nothing without a computer.",
+      "hypothesis": "In addition this, today companies can do nothing without a computer.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "I would suggest this place because it is interesting to discover the eldest civilisation of the world in one of the modernest building.",
+      "reference": "I would suggest this place because it is interesting to discover the oldest civilisation in the world in one of the most modern buildings.",
+      "hypothesis": "I would suggest this place because it is interesting to discover the eldest civilisation of the world in one of the modernest building.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "In my opinion, I'll recommend British Museum.",
+      "reference": "In my opinion, I recommend the British Museum.",
+      "hypothesis": "In my opinion, I'll recommend British Museum.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "Computer is the most important invention in our life.",
+      "reference": "The computer is the most important invention in our life.",
+      "hypothesis": "Computer is the most important invention in our life.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "Do you feel uncomfortable?",
+      "reference": "Did you feel uncomfortable?",
+      "hypothesis": "Do you feel uncomfortable?",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "is a maching make the life easy and ibendow you can cari it every where is amaising the way as the fas the computer changes the programas are mor quicks and For useful and practicals But the Computer have the bad sead to I whand mean we life aeche day depende mor and mor for It.",
+      "reference": "is a machine that makes life easy and ibendow you can carry it everywhere. It is amazing the way as the fas the computer changes, the programs are faster and more useful and practical. But the computer has a bad side too. I whand mean we life each day we depend more and more on it.",
+      "hypothesis": "is a maching make the life easy and ibendow you can cari it every where is amaising the way as the fas the computer changes the programas are mor quicks and For useful and practicals But the Computer have the bad sead to I whand mean we life aeche day depende mor and mor for It.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "I hope that these informations will bring you to visit Biasco and its,,house\".",
+      "reference": "I hope that this information will encourage you to visit Biasco and its,,house\".",
+      "hypothesis": "I hope that these informations will bring you to visit Biasco and its,,house\".",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "There are a lot of advantages for it.",
+      "reference": "There are a lot of advantages to it.",
+      "hypothesis": "There are a lot of advantages for it.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "Basicaly, during three hour time in the afternoon nobody is able to visit all of interesting places of London.",
+      "reference": "Basically, during three hours in the afternoon nobody is able to visit all of the interesting places in London.",
+      "hypothesis": "Basicaly, during three hour time in the afternoon nobody is able to visit all of interesting places of London.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "You will find many interesting points there, therefore, I urge you to visit the place, if you want to experience the tradition of Korea.",
+      "reference": "You will find many interesting points there, therefore, I urge you to visit the place, if you want to experience the tradition of Korea.",
+      "hypothesis": "You will find many interesting points there, therefore, I urge you to visit the place, if you want to experience the tradition of Korea.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "Outside The building is made of white stones.",
+      "reference": "Outside The building is made of white stones.",
+      "hypothesis": "Outside The building is made of white stones.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "Many bosses or in the factories not being needed to employ many claver workers Because we don't need them a lot.",
+      "reference": "A lot of bosses or workers in factories do not need to employ many clever workers because we don't need a lot of them.",
+      "hypothesis": "Many bosses or in the factories not being needed to employ many claver workers Because we don't need them a lot.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "We can spend a lot of time enjoying ourselves with some programs, all what we have to do is watching.",
+      "reference": "We can spend a lot of time enjoying ourselves with some programmes, all that we have to do is watch.",
+      "hypothesis": "We can spend a lot of time enjoying ourselves with some programs, all what we have to do is watching.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "I suggest you should wear something informal.",
+      "reference": "I suggest you should wear something informal.",
+      "hypothesis": "I suggest you should wear something informal.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "This building consists of a world exposition centre, a multiplex cinema, a huge shopping mall, a huge food court and an aquarium.",
+      "reference": "This building consists of a world exhibition centre, a multiplex cinema, a huge shopping mall, a huge food court and an aquarium.",
+      "hypothesis": "This building consists of a world exposition centre, a multiplex cinema, a huge shopping mall, a huge food court and an aquarium.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "The Museum is well-organised for tourists.",
+      "reference": "The Museum is well organised for tourists.",
+      "hypothesis": "The Museum is well-organised for tourists.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "The college will arrange a mini-bus to come and pick you up every morning at 8:45, so you can arrive to the college around 9 o'clock and have some time before the conference starts at 9:15.",
+      "reference": "The college will arrange for a mini-bus to come and pick you up every morning at 8:45, so you can arrive at the college around 9 o'clock and have some time before the conference starts at 9:15.",
+      "hypothesis": "The college will arrange a mini-bus to come and pick you up every morning at 8:45, so you can arrive to the college around 9 o'clock and have some time before the conference starts at 9:15.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "There will be a party after the conference.",
+      "reference": "There will be a party after the conference.",
+      "hypothesis": "There will be a party after the conference.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "I hope that I had answer all of your question and that the conference will be grateful.",
+      "reference": "I hope that I have answered all of your questions and that the conference will be great.",
+      "hypothesis": "I hope that I had answer all of your question and that the conference will be grateful.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "The industrial countries have encountered deep evolution of their strictures since the car has been made available to everyone.",
+      "reference": "The industrial countries have encountered great change in their structures since the car has been made available to everyone.",
+      "hypothesis": "The industrial countries have encountered deep evolution of their strictures since the car has been made available to everyone.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "They have intentions improved our life a lot since they had appeared, but not every one beleives it is really so.",
+      "reference": "These inventions have improved our life a lot since they appeared, but not everyone believes it is really so.",
+      "hypothesis": "They have intentions improved our life a lot since they had appeared, but not every one beleives it is really so.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "The dress code is: no jeans.",
+      "reference": "The dress code is no jeans.",
+      "hypothesis": "The dress code is: no jeans.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "FACILITIES:.",
+      "reference": "FACILITIES:.",
+      "hypothesis": "FACILITIES:.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "Firstly, let me explain the way from the PALACE HOTEL, where your group will be staying, to the conference.",
+      "reference": "Firstly, let me explain the route from the PALACE HOTEL, where your group will be staying, to the conference.",
+      "hypothesis": "Firstly, let me explain the way from the PALACE HOTEL, where your group will be staying, to the conference.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "The electricity is very important in keeping our lives go.",
+      "reference": "Electricity is very important in keeping our lives going.",
+      "hypothesis": "The electricity is very important in keeping our lives go.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "I would recommend your students to bring their Identity Card to prove their age.",
+      "reference": "I would recommend your students bring their Identity Cards to prove their age.",
+      "hypothesis": "I would recommend your students to bring their Identity Card to prove their age.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "After getting on the train, you should get off at the Mountain station which is for twenty minutes, is in front of the conference.",
+      "reference": "After getting on the train, you should get off at the Mountain station, which is twenty minutes away. It is opposite the conference venue.",
+      "hypothesis": "After getting on the train, you should get off at the Mountain station which is for twenty minutes, is in front of the conference.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "For those who want something more exciting and advanturous, you are recommanded to visit the Fun Fair and amusement on the top floor of the building.",
+      "reference": "For those who want something more exciting and adventurous, you are recommended to visit the Fun Fair and amusement arcade on the top floor of the building.",
+      "hypothesis": "For those who want something more exciting and advanturous, you are recommanded to visit the Fun Fair and amusement on the top floor of the building.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "Unfortunately Richard Brown is ill but I can help you as much as I can.",
+      "reference": "Unfortunately Richard Brown is ill but I can help you as much as I can.",
+      "hypothesis": "Unfortunately Richard Brown is ill but I can help you as much as I can.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "I can not imagine to live without televison, it is something what we need for our education, for getting news and other helpful information.",
+      "reference": "I cannot imagine living without television, it is something that we need for our education, and for getting news and other helpful information.",
+      "hypothesis": "I can not imagine to live without televison, it is something what we need for our education, for getting news and other helpful information.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "There are lots of things to do here.",
+      "reference": "There are lots of things to do here.",
+      "hypothesis": "There are lots of things to do here.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "After a visit to British Museum, you will be certainly able to put your history textbook away!",
+      "reference": "After a visit to the British Museum, you will certainly be able to put your history textbook away!",
+      "hypothesis": "After a visit to British Museum, you will be certainly able to put your history textbook away!",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "I am writing to give you some advice of an international student conference.",
+      "reference": "I am writing to give you some advice about the international student conference.",
+      "hypothesis": "I am writing to give you some advice of an international student conference.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "For example, in the past it would had been extremely exhausting travelling riding a hourse but nowadays we have lots of big and spacious cars and a wide range of optionals to choose with.",
+      "reference": "For example, in the past it would had been extremely exhausting to travel on a horse but nowadays we have lots of big and spacious cars and a wide range of options to choose from.",
+      "hypothesis": "For example, in the past it would had been extremely exhausting travelling riding a hourse but nowadays we have lots of big and spacious cars and a wide range of optionals to choose with.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "The conference is organised in the civic hall so it is very simple to found it.",
+      "reference": "The conference is held in the civic hall so it is very easy to find it.",
+      "hypothesis": "The conference is organised in the civic hall so it is very simple to found it.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "She had a dream where somebody told her that that day would be special.",
+      "reference": "She had a dream where somebody told her that that day would be special.",
+      "hypothesis": "She had a dream where somebody told her that that day would be special.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "I have just received your letter.",
+      "reference": "I have just received your letter.",
+      "hypothesis": "I have just received your letter.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "It is rebuilt in 1948 because of the Secound world war it had been demaged.",
+      "reference": "It was rebuilt in 1948 because of the Second World War, when it had been damaged.",
+      "hypothesis": "It is rebuilt in 1948 because of the Secound world war it had been demaged.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "If you want to buy something, specially clothes, shopping mall, which is called 'COEX mall', will be the best place: very cheap and lots of designed clothes.",
+      "reference": "If you want to buy something, especially clothes, the shopping mall, which is called 'COEX mall', will be the best place: very cheap and lots of designer clothes.",
+      "hypothesis": "If you want to buy something, specially clothes, shopping mall, which is called 'COEX mall', will be the best place: very cheap and lots of designed clothes.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "They are able to give and receive informations very quickly.",
+      "reference": "They are able to give and receive information very quickly.",
+      "hypothesis": "They are able to give and receive informations very quickly.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "Up to the first floor, they have a huge radio room, for send and receipt the information all over the world because they have a small BBC building all over the world either; For Example, THAILAND, United State of America, INDONISIA and CANADA.",
+      "reference": "On the first floor, they have a huge radio room, for sending and receiving information from all over the world, because they have small BBC buildings all over the world also; for Example, THAILAND, the United States of America, INDONESIA and CANADA.",
+      "hypothesis": "Up to the first floor, they have a huge radio room, for send and receipt the information all over the world because they have a small BBC building all over the world either; For Example, THAILAND, United State of America, INDONISIA and CANADA.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "And ofcause this stops me everytime to live sociable life.",
+      "reference": "And of course this stops me everytime to live sociable life.",
+      "hypothesis": "And ofcause this stops me everytime to live sociable life.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "However, if you re interested in Archeology you should vitis the History Museum in Garden Square.",
+      "reference": "However, if you're interested in archaeology you should visit the History Museum in Garden Square.",
+      "hypothesis": "However, if you re interested in Archeology you should vitis the History Museum in Garden Square.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "So you are going to come at the conference in some minutes.",
+      "reference": "So you are going to get to the conference in a few minutes.",
+      "hypothesis": "So you are going to come at the conference in some minutes.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "Moreover, other facilities in my house, telephone, air-conditioner, fridge, for example, they are all need the electricity.",
+      "reference": "Moreover, other facilities in my house, the telephone, air-conditioner, fridge, for example, they all need electricity.",
+      "hypothesis": "Moreover, other facilities in my house, telephone, air-conditioner, fridge, for example, they are all need the electricity.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "So if you visit Paris, the Pompidou's center is a very interesting building to visit, even if in Paris there are many others buildings.",
+      "reference": "So if you visit Paris, the Pompidou centre is a very interesting building to visit, even if in Paris there are many other buildings.",
+      "hypothesis": "So if you visit Paris, the Pompidou's center is a very interesting building to visit, even if in Paris there are many others buildings.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "We are greatful that your group has just arrived so I am going to give information about an interesting building to visit.",
+      "reference": "We are pleased that your group has arrived so I am going to give you information about an interesting building to visit.",
+      "hypothesis": "We are greatful that your group has just arrived so I am going to give information about an interesting building to visit.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "There will be live music and a midnight dinner.",
+      "reference": "There will be live music and a midnight dinner.",
+      "hypothesis": "There will be live music and a midnight dinner.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "Story It is 500 years old, and it is said to be haunted by a lady ghost.",
+      "reference": "Story It is 500 years old, and it is said to be haunted by a lady ghost.",
+      "hypothesis": "Story It is 500 years old, and it is said to be haunted by a lady ghost.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "The portable phone is an important invention, because nearly everybody has one, and so one can always call somebody if there is a problem.",
+      "reference": "The mobile phone is an important invention, because nearly everybody has one, and so one can always call somebody if there is a problem.",
+      "hypothesis": "The portable phone is an important invention, because nearly everybody has one, and so one can always call somebody if there is a problem.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "Best choice Welcome to London.",
+      "reference": "Best choice Welcome to London.",
+      "hypothesis": "Best choice Welcome to London.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "You can book this hotel it's the best and it's near to conference it's only 15 minutes by walk.",
+      "reference": "You can book this hotel. It's the best and it's near to the conference. It's only 15 minutes on foot.",
+      "hypothesis": "You can book this hotel it's the best and it's near to conference it's only 15 minutes by walk.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "Everything in this world works with computers from now on.",
+      "reference": "Everything in this world will work with computers from now on.",
+      "hypothesis": "Everything in this world works with computers from now on.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "I suggest to wear casual clothes, I think there's no need of school uniforms.",
+      "reference": "I suggest wearing casual clothes. I think there's no need for school uniforms.",
+      "hypothesis": "I suggest to wear casual clothes, I think there's no need of school uniforms.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "they are going to leave at 9 o'clock.",
+      "reference": "They are going to leave at 9 o'clock.",
+      "hypothesis": "they are going to leave at 9 o'clock.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "Smith, Thank you for your letter.",
+      "reference": "Smith, Thank you for your letter.",
+      "hypothesis": "Smith, Thank you for your letter.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "Linking to the internet was so popular.",
+      "reference": "Linking to the Internet was so popular.",
+      "hypothesis": "Linking to the internet was so popular.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "Personly I recommend the Dicken's tour because it is a good length of walking and very historical.",
+      "reference": "Personally I recommend the Dickens tour because it is a good length walk and very historical.",
+      "hypothesis": "Personly I recommend the Dicken's tour because it is a good length of walking and very historical.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "I say that it must be the most important thing for us because they save our times passing so fast.",
+      "reference": "I say that they must be the most important things for us because they save our time passing so fast.",
+      "hypothesis": "I say that it must be the most important thing for us because they save our times passing so fast.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "Dear Mrs Smith, I am writing in response to your letter where you asked me to give you more information about international student conference and give some ideas and suggestions of what you and your students can do during your free time here.",
+      "reference": "Dear Mrs Smith, I am writing in response to your letter where you asked me to give you more information about the international student conference and give some ideas and suggestions about what you and your students can do during your free time here.",
+      "hypothesis": "Dear Mrs Smith, I am writing in response to your letter where you asked me to give you more information about international student conference and give some ideas and suggestions of what you and your students can do during your free time here.",
+      "labels": [
+        "oov"
+      ]
+    },
+    {
+      "source": "Alice knew that is was going to be a very special day for her.",
+      "reference": "Alice knew that is was going to be a very special day for her.",
+      "hypothesis": "Alice knew that is was going to be a very special day for her.",
+      "labels": [
+        "ok"
+      ]
+    },
+    {
+      "source": "I had a problem with my best friend once when we keep in tuch through e-mail.",
+      "reference": "I had a problem with my best friend once when we kept in touch through e-mail.",
+      "hypothesis": "I had a problem with my best friend once when we keep in tuch through e-mail.",
+      "labels": [
+        "oov"
+      ]
+    }
+  ],
+  "summary": {
+    "oov": 52,
+    "ok": 48
+  }
+}
