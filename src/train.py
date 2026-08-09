@@ -10,7 +10,7 @@ import torch.nn as nn
 from torch.utils.data import DataLoader
 
 from src.vocabulary import Vocabulary
-from src.dataset import FCEDataset  # Adjust import based on dataset.py class name
+from src.dataset import GECDataset, make_collate_fn  # Adjust import based on dataset.py class name
 from src.model import Encoder, Decoder, Seq2Seq
 
 def set_seed(seed=42):
@@ -24,8 +24,8 @@ def train_epoch(model, dataloader, optimizer, criterion, clip, device):
     model.train()
     epoch_loss = 0
     for batch in dataloader:
-        src = batch['src'].to(device)
-        trg = batch['trg'].to(device)
+        src = batch['source'].to(device)
+        trg = batch['target'].to(device)
         
         optimizer.zero_grad()
         output = model(src, trg, teacher_forcing_ratio=0.5)
@@ -48,8 +48,8 @@ def evaluate(model, dataloader, criterion, device):
     epoch_loss = 0
     with torch.no_grad():
         for batch in dataloader:
-            src = batch['src'].to(device)
-            trg = batch['trg'].to(device)
+            src = batch['source'].to(device)
+            trg = batch['target'].to(device)
             
             output = model(src, trg, teacher_forcing_ratio=0.0) # Turn off teacher forcing
             output_dim = output.shape[-1]
@@ -71,13 +71,24 @@ def main():
     # Load Vocabulary
     vocab = Vocabulary.load("data/processed/vocab.json") # Adjust loading function if needed
     
-    # Initialize Datasets & DataLoaders
-    train_dataset = FCEDataset("data/processed/train.jsonl", vocab)
-    val_dataset = FCEDataset("data/processed/validation.jsonl", vocab)
-    
-    train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
-    val_loader = DataLoader(val_dataset, batch_size=32, shuffle=False)
-    
+      # Initialize Datasets & DataLoaders
+    train_dataset = GECDataset("data/processed/train.jsonl", vocab)
+    val_dataset = GECDataset("data/processed/validation.jsonl", vocab)
+
+    train_loader = DataLoader(
+        train_dataset,
+        batch_size=32,
+        shuffle=True,
+        collate_fn=make_collate_fn(vocab.pad_idx)
+    )
+
+    val_loader = DataLoader(
+        val_dataset,
+        batch_size=32,
+        shuffle=False,
+        collate_fn=make_collate_fn(vocab.pad_idx)
+    )
+
     # Model Hyperparameters
     EMBED_SIZE = 256
     HIDDEN_SIZE = 512
@@ -85,8 +96,8 @@ def main():
     DROPOUT = 0.3
     PAD_IDX = vocab.pad_idx
     
-    enc = Encoder(len(vocab), EMBED_SIZE, HIDDEN_SIZE, NUM_LAYERS, DROPOUT, PAD_IDX)
-    dec = Decoder(len(vocab), EMBED_SIZE, HIDDEN_SIZE, NUM_LAYERS, DROPOUT, PAD_IDX)
+    enc = Encoder(len(vocab.itos), EMBED_SIZE, HIDDEN_SIZE, NUM_LAYERS, DROPOUT, PAD_IDX)
+    dec = Decoder(len(vocab.itos), EMBED_SIZE, HIDDEN_SIZE, NUM_LAYERS, DROPOUT, PAD_IDX)
     model = Seq2Seq(enc, dec, PAD_IDX).to(device)
     
     print(f"Total Trainable Parameters: {model.count_parameters():,}")
