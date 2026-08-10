@@ -43,15 +43,19 @@ CP468-Course-Project/
 │   └── raw/
 ├── src/
 │   ├── dataset.py
+│   ├── evaluation.py
 │   ├── model.py
 │   ├── train.py
 │   └── vocabulary.py
 ├── llm_baseline/
 │   ├── outputs/
+│   ├── compare_metrics.py
 │   ├── prompts.py
-│   └── run_baseline.py
+│   ├── run_baseline.py
+│   └── run_lstm_baseline.py
 ├── checkpoints/
 ├── scripts/
+│   └── print_eval.py
 ├── requirements.txt
 └── README.md
 ```
@@ -149,6 +153,16 @@ To train the LSTM model from the project root, run:
 python -m src.train
 ```
 
+The number of epochs, batch size, and training-set size can also be configured using command-line arguments.
+
+For example, a small integration test can be run using:
+
+```bash
+python -m src.train --epochs 1 --limit 20
+```
+
+The `--limit` option is intended for testing the training pipeline and should not be used to reproduce the final experimental model.
+
 The training script automatically selects CUDA when a compatible GPU is available and otherwise uses the CPU.
 
 During initialization, the model reports the number of trainable parameters. The integrated model contains:
@@ -157,11 +171,14 @@ During initialization, the model reports the number of trainable parameters. The
 42,188,692 trainable parameters
 ```
 
-The best validation checkpoint is saved to:
+Model checkpoints are saved to:
 
 ```text
 checkpoints/best_lstm.pt
+checkpoints/last_lstm.pt
 ```
+
+`best_lstm.pt` stores the model with the lowest validation loss, while `last_lstm.pt` stores the model state from the final completed epoch. 
 
 Training metadata is saved to:
 
@@ -202,7 +219,7 @@ To reproduce our reported results specifically, use:
 python llm_baseline/run_baseline.py --limit 100
 ```
 
-This runs our fixed 100-example subset (seed=42), matching the outputs saved in llm_baseline/outputs/. Due to free-tier API rate limits, this subset was used for all reported results rather than the complete 2,382-example test set.
+For the reported experiment, the LLM baseline was run on a fixed subset of 100 test examples selected using a random seed of `42`. Due to API rate limits and cost considerations, this experimental subset was used instead of running the LLM baseline across the complete 2,382-example test split.
 
 The outputs are stored in:
 
@@ -255,6 +272,7 @@ llm_baseline/outputs/test_subset_ids.json
 ```
 
 These IDs can be used to ensure that the LSTM and LLM are evaluated on identical examples.
+The LLM baseline was run on 100 selected test examples. During automatic metric calculation, examples where the source sentence and reference correction were already identical are excluded consistently across all systems. This leaves 76 non-trivial examples for the reported automatic metric comparison.
 
 #### Checkpoints and Experiment Metadata
 
@@ -264,12 +282,80 @@ LLM outputs are saved separately for each prompting condition, along with token 
 
 ### Evaluation
 
-The LSTM and LLM outputs will be evaluated on the same test examples using:
+The LSTM and LLM approaches are evaluated using two standard automatic evaluation metrics:
 
-- BLEU
-- chrF
-- Exact Match
+- **BLEU**
+- **ROUGE-L F1**
 
-The evaluation pipeline also includes qualitative error analysis to compare the types of grammatical corrections made by the two approaches.
+The evaluation compares the LSTM model against all four Gemini prompting conditions:
 
-Exact evaluation commands and output locations will be documented after the evaluation pipeline is finalized.
+1. Prompt V1 — Zero-shot
+2. Prompt V2 — Zero-shot
+3. Prompt V1 — Few-shot
+4. Prompt V2 — Few-shot
+
+To compute the automatic evaluation metrics, run:
+
+```bash
+python llm_baseline/compare_metrics.py
+```
+
+The resulting metrics are saved to:
+
+```text
+llm_baseline/outputs/metrics_summary.json
+```
+
+The LLM baseline was run on 100 selected test examples. For the reported automatic comparison, examples where the source sentence and reference correction were identical are excluded consistently across all systems. This leaves 76 non-trivial examples for the automatic metric comparison.
+
+The resulting scores are:
+
+| System | BLEU | ROUGE-L F1 |
+| --- | ---: | ---: |
+| LSTM | 0.1621 | 0.5312 |
+| Gemini V1 Zero-shot | 0.6202 | 0.8188 |
+| Gemini V2 Zero-shot | **0.7256** | **0.8826** |
+| Gemini V1 Few-shot | 0.6625 | 0.8471 |
+| Gemini V2 Few-shot | 0.7080 | 0.8767 |
+
+Among the evaluated LLM conditions, Prompt V2 in the zero-shot setting achieved the highest BLEU and ROUGE-L F1 scores.
+
+### Qualitative Error Analysis
+
+In addition to the automatic metrics, the evaluation includes a qualitative comparison of LSTM and LLM outputs.
+
+The analysis presents at least 10 test examples side by side, including:
+
+- Source sentence
+- Reference correction
+- LSTM output
+- LLM output
+- Error category
+
+The selected examples illustrate different model behaviours and failure modes rather than only successful cases. Observed LSTM failure modes include repetition, under-translation, and low-adequacy outputs.
+
+To display the quantitative results and curated qualitative examples, run:
+
+```bash
+python scripts/print_eval.py
+```
+
+### LLM API Cost
+
+Token usage and estimated API costs were recorded for each Gemini prompting condition.
+
+| Condition | Input Tokens | Output Tokens | Estimated Cost (USD) |
+| --- | ---: | ---: | ---: |
+| V1 Zero-shot | 4,281 | 1,966 | $0.0062 |
+| V2 Zero-shot | 10,681 | 1,997 | $0.0082 |
+| V1 Few-shot | 20,881 | 1,998 | $0.0113 |
+| V2 Few-shot | 27,281 | 2,001 | $0.0132 |
+
+The total estimated API cost across all four experimental conditions was approximately **$0.0389 USD**.
+
+Detailed cost information is stored in:
+
+```text
+llm_baseline/outputs/cost_summary.json
+```
+
